@@ -20,7 +20,7 @@ Package: linux-image-@NAME@
 Architecture: amd64
 Depends: linux-image-@KERNELRELEASE@ (= ${binary:Version}),
          ${misc:Depends}
-Description: Linux Kernel for Huawei Intel laptops
+Description: Linux Kernel for Intel laptops
 
 Package: linux-image-@KERNELRELEASE@
 Architecture: amd64
@@ -33,23 +33,23 @@ Depends: dracut,
 Recommends: apparmor
 Suggests: linux-image-@NAME@-common (= ${binary:Version}),
           firmware-realtek
-Description: Linux Kernel for Huawei Intel laptops
+Description: Linux Kernel for Intel laptops
 
 Package: linux-image-@NAME@-dbg
 Section: debug
 Architecture: amd64
 Depends: linux-image-@KERNELRELEASE@-dbg (= ${binary:Version}),
          ${misc:Depends}
-Description: Linux Kernel debug for Huawei Intel laptops
+Description: Linux Kernel debug for Intel laptops
 
 Package: linux-image-@KERNELRELEASE@-dbg
 Section: debug
 Architecture: amd64
 Depends: ${misc:Depends}
-Description: Linux Kernel debug for Huawei Intel laptops
+Description: Linux Kernel debug for Intel laptops
 
 Package: linux-image-@NAME@-common
 Architecture: amd64
 Depends: systemd,
          ${misc:Depends}
-Description: Linux Kernel common files for Huawei Intel laptops
+Description: Linux Kernel common files for Intel laptops

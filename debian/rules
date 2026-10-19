@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-NAME := hwintel
+NAME := spark
 JOBS := $(shell nproc)
 LLVM := -22
 
