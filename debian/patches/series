@@ -11,4 +11,4 @@
 0011-mfd-intel-lpss-Remove-extra-DebugFS-dentry.patch
 0012-mfd-intel-lpss-Switch-to-debugfs_remove.patch
 0013-platform-x86-Add-Goodix-fingerprint-EC-mailbox-trans.patch
-0014-linux7.2-rc1-bore-7.0.0.patch
+0014-linux7.3-rc2-bore-7.0.0.patch

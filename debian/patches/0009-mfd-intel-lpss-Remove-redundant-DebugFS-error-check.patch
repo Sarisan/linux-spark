@@ -1,4 +1,4 @@
-From 954988e190aa2713a3d19deeef735069ee21d446 Mon Sep 17 00:00:00 2001
+From 4dd48c612eab4875a13fb94252059a2c0010a506 Mon Sep 17 00:00:00 2001
 From: Maria Lisina <sekoohaka.sarisan@gmail.com>
 Date: Wed, 16 Sep 2026 21:23:47 +0500
 Subject: [PATCH 09/14] mfd: intel-lpss: Remove redundant DebugFS error check

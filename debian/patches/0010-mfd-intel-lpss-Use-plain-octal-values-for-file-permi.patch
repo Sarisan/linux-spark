@@ -1,4 +1,4 @@
-From 40a999e72fbc6d38fe2906ee54967882247830e0 Mon Sep 17 00:00:00 2001
+From 1d1bd88388067b1b9ea71d5ee8ec271f6cf95cbb Mon Sep 17 00:00:00 2001
 From: Maria Lisina <sekoohaka.sarisan@gmail.com>
 Date: Wed, 16 Sep 2026 21:23:48 +0500
 Subject: [PATCH 10/14] mfd: intel-lpss: Use plain octal values for file

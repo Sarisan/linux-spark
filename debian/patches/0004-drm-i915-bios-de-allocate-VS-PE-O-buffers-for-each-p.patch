@@ -1,4 +1,4 @@
-From b1d02b0a9a21d02df538b40ffcf85024d529b4a7 Mon Sep 17 00:00:00 2001
+From 3b5fb0a1e7bc191e9ca690891568b4bac56b1465 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Micha=C5=82=20Grzelak?= <michal.grzelak@intel.com>
 Date: Fri, 4 Sep 2026 14:31:44 +0200
 Subject: [PATCH 04/14] drm/i915/bios: de/allocate VS/PE-O buffers for each
@@ -46,7 +46,7 @@ Acked-by: Jani Nikula <jani.nikula@intel.com>
  1 file changed, 31 insertions(+)
 
 diff --git a/drivers/gpu/drm/i915/display/intel_bios.c b/drivers/gpu/drm/i915/display/intel_bios.c
-index c37f853a65f4..9f15ab179abb 100644
+index 9610b794bc14..1a09f7933e49 100644
 --- a/drivers/gpu/drm/i915/display/intel_bios.c
 +++ b/drivers/gpu/drm/i915/display/intel_bios.c
 @@ -34,6 +34,7 @@

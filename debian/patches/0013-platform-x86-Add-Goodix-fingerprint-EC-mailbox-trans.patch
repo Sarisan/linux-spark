@@ -1,4 +1,4 @@
-From 60c719ec9120e03873c60f2090ccc7e30dad8dc5 Mon Sep 17 00:00:00 2001
+From 57a3bac47c6441ef31a7e3ec52760f45d6665df8 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Ertu=C4=9Frul=20Top=C3=A7u?= <ertugtopcu0@gmail.com>
 Date: Sun, 16 Aug 2026 22:49:55 +0300
 Subject: [PATCH 13/14] platform/x86: Add Goodix fingerprint EC mailbox
@@ -70,10 +70,10 @@ index 000000000000..11ca80a41ca7
 +		GOODIX_EC_IOCTL_FLUSH_RX discards all queued receive records.
 +Users:		libfprint Goodix GXFP5130 userspace driver
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 95cd976a068c..665f52caa8ac 100644
+index 782389bd5cd3..79f9da1c23ad 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -11043,6 +11043,14 @@ M:	Maud Spierings <maudspierings@gocontroll.com>
+@@ -11123,6 +11123,14 @@ M:	Maud Spierings <maudspierings@gocontroll.com>
  S:	Maintained
  F:	Documentation/devicetree/bindings/connector/gocontroll,moduline-module-slot.yaml
  
@@ -89,7 +89,7 @@ index 95cd976a068c..665f52caa8ac 100644
  M:	Hans de Goede <hansg@kernel.org>
  L:	linux-input@vger.kernel.org
 diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-index b54b5212b204..980996c8c890 100644
+index 957034f39e4e..57d1311f8670 100644
 --- a/drivers/platform/x86/Kconfig
 +++ b/drivers/platform/x86/Kconfig
 @@ -440,6 +440,8 @@ config FUJITSU_TABLET

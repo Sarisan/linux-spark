@@ -1,4 +1,4 @@
-From 1406b7e3fa82302666a4f077179774db59e2f400 Mon Sep 17 00:00:00 2001
+From bd9907954945caad0eacdd1fe13a0e24b6650bf4 Mon Sep 17 00:00:00 2001
 From: Maria Lisina <sekoohaka.sarisan@gmail.com>
 Date: Wed, 16 Sep 2026 21:23:50 +0500
 Subject: [PATCH 12/14] mfd: intel-lpss: Switch to debugfs_remove()

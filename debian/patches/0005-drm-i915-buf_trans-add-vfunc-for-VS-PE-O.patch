@@ -1,4 +1,4 @@
-From 4423e8805c56e7e65cefeabdef345576e5007240 Mon Sep 17 00:00:00 2001
+From 083130a2cb8f93dc6e00ce7fbee68804fa579574 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Micha=C5=82=20Grzelak?= <michal.grzelak@intel.com>
 Date: Fri, 4 Sep 2026 14:31:45 +0200
 Subject: [PATCH 05/14] drm/i915/buf_trans: add vfunc for VS/PE-O
@@ -48,10 +48,10 @@ index 4cd1e4d76c7a..f31283a0331b 100644
  	return encoder->get_buf_trans(encoder, crtc_state, n_entries);
  }
 diff --git a/drivers/gpu/drm/i915/display/intel_display_types.h b/drivers/gpu/drm/i915/display/intel_display_types.h
-index 18e6b01efd38..f4e4ca346573 100644
+index f6a9b0de1ade..6dfad1157ce9 100644
 --- a/drivers/gpu/drm/i915/display/intel_display_types.h
 +++ b/drivers/gpu/drm/i915/display/intel_display_types.h
-@@ -286,6 +286,9 @@ struct intel_encoder {
+@@ -289,6 +289,9 @@ struct intel_encoder {
  	 */
  	enum icl_port_dpll_id (*port_pll_type)(struct intel_encoder *encoder,
  					       const struct intel_crtc_state *crtc_state);

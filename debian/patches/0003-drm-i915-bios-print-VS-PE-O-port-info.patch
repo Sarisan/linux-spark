@@ -1,4 +1,4 @@
-From ba36cd2761f5b1d1aa8ea9605bc8c0121101e3c6 Mon Sep 17 00:00:00 2001
+From 66e5f1588b9dc76dff7f1da44a3620a52f8d6f9b Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Micha=C5=82=20Grzelak?= <michal.grzelak@intel.com>
 Date: Fri, 4 Sep 2026 14:31:43 +0200
 Subject: [PATCH 03/14] drm/i915/bios: print VS/PE-O port info
@@ -27,7 +27,7 @@ Acked-by: Jani Nikula <jani.nikula@intel.com>
  2 files changed, 11 insertions(+)
 
 diff --git a/drivers/gpu/drm/i915/display/intel_bios.c b/drivers/gpu/drm/i915/display/intel_bios.c
-index c5c65562bebd..c37f853a65f4 100644
+index 06a8dd7581bb..9610b794bc14 100644
 --- a/drivers/gpu/drm/i915/display/intel_bios.c
 +++ b/drivers/gpu/drm/i915/display/intel_bios.c
 @@ -2801,6 +2801,11 @@ static void print_ddi_port(const struct intel_bios_encoder_data *devdata)

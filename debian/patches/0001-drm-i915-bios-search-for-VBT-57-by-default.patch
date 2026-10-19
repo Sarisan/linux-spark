@@ -1,4 +1,4 @@
-From 668fc79a85e5858d3e913cbe5999b1aaaf7ddc6e Mon Sep 17 00:00:00 2001
+From 4c86292e749bac9f3c2770e85a72d1c36f47f597 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Micha=C5=82=20Grzelak?= <michal.grzelak@intel.com>
 Date: Fri, 4 Sep 2026 14:31:41 +0200
 Subject: [PATCH 01/14] drm/i915/bios: search for VBT #57 by default
@@ -28,7 +28,7 @@ Acked-by: Jani Nikula <jani.nikula@intel.com>
  1 file changed, 18 insertions(+)
 
 diff --git a/drivers/gpu/drm/i915/display/intel_bios.c b/drivers/gpu/drm/i915/display/intel_bios.c
-index ded2ee497bbf..b6a3d7ea9738 100644
+index 97cbae2e547e..ece4df4a9d62 100644
 --- a/drivers/gpu/drm/i915/display/intel_bios.c
 +++ b/drivers/gpu/drm/i915/display/intel_bios.c
 @@ -200,6 +200,8 @@ static const struct {

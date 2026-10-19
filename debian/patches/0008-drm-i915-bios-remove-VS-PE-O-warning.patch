@@ -1,4 +1,4 @@
-From 9e949712263405793206b6fc9655e7765fbce676 Mon Sep 17 00:00:00 2001
+From 912932fbd80bf655efc38fc5da80ba747408133a Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Micha=C5=82=20Grzelak?= <michal.grzelak@intel.com>
 Date: Fri, 4 Sep 2026 14:31:48 +0200
 Subject: [PATCH 08/14] drm/i915/bios: remove VS/PE-O warning
@@ -18,7 +18,7 @@ Acked-by: Jani Nikula <jani.nikula@intel.com>
  1 file changed, 9 deletions(-)
 
 diff --git a/drivers/gpu/drm/i915/display/intel_bios.c b/drivers/gpu/drm/i915/display/intel_bios.c
-index 02840dc62534..105ef5ffd54b 100644
+index 11d2cbb78eab..7b6a6f8c3cf1 100644
 --- a/drivers/gpu/drm/i915/display/intel_bios.c
 +++ b/drivers/gpu/drm/i915/display/intel_bios.c
 @@ -2791,7 +2791,6 @@ static bool is_port_valid(struct intel_display *display, enum port port)

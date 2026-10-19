@@ -1,4 +1,4 @@
-From b8f597a36b78f46206c59ff78ee442d5e148814e Mon Sep 17 00:00:00 2001
+From 678e6709a81e70a579ad0c6304052e3673aa1522 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Micha=C5=82=20Grzelak?= <michal.grzelak@intel.com>
 Date: Fri, 4 Sep 2026 14:31:42 +0200
 Subject: [PATCH 02/14] drm/i915/bios: store VBT #57's metadata in
@@ -36,7 +36,7 @@ Acked-by: Jani Nikula <jani.nikula@intel.com>
  2 files changed, 17 insertions(+)
 
 diff --git a/drivers/gpu/drm/i915/display/intel_bios.c b/drivers/gpu/drm/i915/display/intel_bios.c
-index b6a3d7ea9738..c5c65562bebd 100644
+index ece4df4a9d62..06a8dd7581bb 100644
 --- a/drivers/gpu/drm/i915/display/intel_bios.c
 +++ b/drivers/gpu/drm/i915/display/intel_bios.c
 @@ -2205,6 +2205,11 @@ parse_compression_parameters(struct intel_display *display)
@@ -64,10 +64,10 @@ index b6a3d7ea9738..c5c65562bebd 100644
  
  static u8 translate_iboost(struct intel_display *display, u8 val)
 diff --git a/drivers/gpu/drm/i915/display/intel_display_core.h b/drivers/gpu/drm/i915/display/intel_display_core.h
-index 09ce25a6d4b1..061bf479458f 100644
+index 7e988b7b1fe7..c80b4a2f74f9 100644
 --- a/drivers/gpu/drm/i915/display/intel_display_core.h
 +++ b/drivers/gpu/drm/i915/display/intel_display_core.h
-@@ -242,6 +242,13 @@ struct intel_vbt_data {
+@@ -244,6 +244,13 @@ struct intel_vbt_data {
  	struct list_head display_devices;
  	struct list_head bdb_blocks;
  

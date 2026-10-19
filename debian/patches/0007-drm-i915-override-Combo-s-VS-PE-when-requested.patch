@@ -1,4 +1,4 @@
-From bfa9b42a0266325524b83057ecdaf97f310302b1 Mon Sep 17 00:00:00 2001
+From 47e7bc644e3cf240eb6fe70c31769c1238a07997 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Micha=C5=82=20Grzelak?= <michal.grzelak@intel.com>
 Date: Mon, 7 Sep 2026 14:27:42 +0200
 Subject: [PATCH 07/14] drm/i915: override Combo's VS/PE when requested
@@ -81,7 +81,7 @@ Acked-by: Jani Nikula <jani.nikula@intel.com>
  3 files changed, 138 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/i915/display/intel_bios.c b/drivers/gpu/drm/i915/display/intel_bios.c
-index 8ad83f333d47..02840dc62534 100644
+index be7554c483ad..11d2cbb78eab 100644
 --- a/drivers/gpu/drm/i915/display/intel_bios.c
 +++ b/drivers/gpu/drm/i915/display/intel_bios.c
 @@ -3971,6 +3971,99 @@ intel_bios_get_c10_vspeo(const struct intel_bios_encoder_data *devdata,

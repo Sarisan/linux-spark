@@ -1,3 +1,9 @@
+linux (7.3-1) stable; urgency=low
+
+  * Updated to 7.3.
+
+ -- Maria Lisina <sekoohaka.sarisan@gmail.com>  Mon, 19 Oct 2026 00:36:53 +0000
+
 linux (7.2.11-1) stable; urgency=low
 
   * Updated to 7.2.11.
