@@ -29,6 +29,7 @@ List of external hardware support and features enabled
 * CDC NCM support
 * Huawei NCM embedded AT channel support
 * Host for RNDIS and ActiveSync devices
+* Allow to specify an EDID data set instead of probing for it
 * Dummy BT SCO codec driver
 * Wacom Intuos/Graphire tablet support (USB)
 * USB Mass Storage support
