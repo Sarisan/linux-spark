@@ -4,7 +4,7 @@ NAME := spark
 JOBS := $(shell nproc)
 LLVM := -22
 
-KERNELVERSION := $(shell $(MAKE) -s ARCH=x86_64 LLVM=$(LLVM) kernelversion)
+KERNELVERSION := $(shell $(MAKE) -s kernelversion)
 LOCALVERSION := -$(NAME)$(shell dpkg-parsechangelog -S Version | cut -d '-' -f 2)
 
 KERNELRELEASE := $(KERNELVERSION)$(LOCALVERSION)
