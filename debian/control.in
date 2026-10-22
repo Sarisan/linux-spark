@@ -48,6 +48,26 @@ Architecture: amd64
 Depends: ${misc:Depends}
 Description: Linux Kernel debug for Intel laptops
 
+Package: linux-headers-@NAME@
+Architecture: amd64
+Depends: linux-headers-@KERNELRELEASE@ (= ${binary:Version}),
+         ${misc:Depends}
+Description: Linux Kernel headers for Intel laptops
+
+Package: linux-headers-@KERNELRELEASE@
+Architecture: amd64
+Depends: make,
+         bc,
+         kmod,
+         libelf-dev,
+         libssl-dev,
+         clang-22,
+         lld-22,
+         llvm-22,
+         ${shlibs:Depends},
+         ${misc:Depends}
+Description: Linux Kernel headers for Intel laptops
+
 Package: linux-image-@NAME@-common
 Architecture: amd64
 Depends: systemd,

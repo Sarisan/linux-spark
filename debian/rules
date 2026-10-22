@@ -52,6 +52,13 @@ override_dh_auto_install:
 	install -D -m 644 $(CURDIR)/build/System.map $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug/lib/modules/$(KERNELRELEASE)/System.map
 	install -D -m 644 $(CURDIR)/build/vmlinux $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug/lib/modules/$(KERNELRELEASE)/vmlinux
 
+	install -d $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build/arch/x86
+	cp -a $(CURDIR)/build/.config $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
+	$(MAKE) -j $(JOBS) O=$(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) modules_prepare
+	$(MAKE) -j $(JOBS) O=$(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) scripts
+	cp -a $(CURDIR)/arch/x86/include $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build/arch/x86
+	cp -a $(CURDIR)/include $(CURDIR)/Kbuild $(CURDIR)/Makefile $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
+
 	install -D -m 644 $(CURDIR)/debian/modules-load.conf $(CURDIR)/debian/linux-image-$(NAME)-common/etc/modules-load.d/$(NAME).conf
 
 override_dh_installdebconf:
