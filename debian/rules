@@ -10,18 +10,7 @@ LOCALVERSION := -$(NAME)$(shell dpkg-parsechangelog -S Version | cut -d '-' -f 2
 KERNELRELEASE := $(KERNELVERSION)$(LOCALVERSION)
 
 debian/control: debian/control.in
-	@echo "Generating debian/control"
-	sed -e 's/@NAME@/$(NAME)/g' \
-		-e 's/@KERNELRELEASE@/$(KERNELRELEASE)/g' \
-		$(CURDIR)/debian/control.in > $(CURDIR)/debian/control
-
-	@echo "Generating debian/linux-image-$(KERNELRELEASE).postinst"
-	sed -e 's/@KERNELRELEASE@/$(KERNELRELEASE)/g' \
-		$(CURDIR)/debian/linux-image.postinst.in > $(CURDIR)/debian/linux-image-$(KERNELRELEASE).postinst
-
-	@echo "Generating debian/linux-image-$(KERNELRELEASE).postrm"
-	sed -e 's/@KERNELRELEASE@/$(KERNELRELEASE)/g' \
-		$(CURDIR)/debian/linux-image.postrm.in > $(CURDIR)/debian/linux-image-$(KERNELRELEASE).postrm
+	$(CURDIR)/debian/control.sh $(NAME) $(KERNELRELEASE)
 
 %:
 	dh $@
