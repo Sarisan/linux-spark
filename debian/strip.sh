@@ -13,13 +13,14 @@ alias strip="llvm-strip${llvm}"
 ) | while read -r module
 do
     echo "  STRIP   ${module}"
-
     build_id=$(readelf -n "${module}" | grep "Build ID" | tr -d '[:space:]' | cut -d ':' -f 2)
+
     id_dir=$(printf '%s' "${build_id}" | cut -c 1-2)
     id_file=$(printf '%s' "${build_id}" | cut -c 3-)
 
     target_dir=${PWD}/debian/linux-image-${kernelrelease}-dbg/usr/lib/debug/.build-id/${id_dir}
     target_file=${target_dir}/${id_file}.debug
+
     mkdir -p "${target_dir}"
 
     objcopy --only-keep-debug "${module}" "${target_file}"
@@ -42,6 +43,7 @@ do
     zstd --rm -19 -q -T0 "${module}"
 done
 
+echo "  DEPMOD  ${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules/${kernelrelease}"
 sed -i 's/\.ko/\.ko\.zst/g' \
     "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules/${kernelrelease}/modules.dep" \
     "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules/${kernelrelease}/modules.order"
