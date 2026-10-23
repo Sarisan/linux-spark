@@ -21,7 +21,7 @@ do
 
     target_dir=${PWD}/debian/linux-image-${kernelrelease}-dbg/usr/lib/debug/.build-id/${id_dir}
     target_file=${target_dir}/${id_file}.debug
-    mkdir -p ${target_dir}
+    mkdir -p "${target_dir}"
 
     objcopy --only-keep-debug "${module}" "${target_file}"
     strip --strip-debug "${module}"
@@ -32,9 +32,9 @@ echo "Signing kernel modules..."
 find "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules" -type f -name "*.ko" | while read -r module
 do
     echo "  SIGN    ${module}"
-    ${PWD}/build/scripts/sign-file sha512 \
-        ${PWD}/build/certs/signing_key.pem \
-        ${PWD}/build/certs/signing_key.x509 \
+    "${PWD}/build/scripts/sign-file" sha512 \
+        "${PWD}/build/certs/signing_key.pem" \
+        "${PWD}/build/certs/signing_key.x509" \
         "${module}"
 done
 
