@@ -47,4 +47,4 @@ echo "  DEPMOD  ${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules/${ker
 sed -i 's/\.ko/\.ko\.zst/g' \
     "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules/${kernelrelease}/modules.dep" \
     "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules/${kernelrelease}/modules.order"
-depmod -b "${PWD}/debian/linux-image-${kernelrelease}/usr" "${kernelrelease}"
+depmod -b "${PWD}/debian/linux-image-${kernelrelease}" -m "/usr/lib/modules" "${kernelrelease}"
