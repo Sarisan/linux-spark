@@ -1,3 +1,12 @@
+linux (7.3-2) stable; urgency=low
+
+  * Added kernel headers package.
+  * Added libc development package.
+  * Added missing zstd build dependency.
+  * Fixed debug symbols package.
+
+ -- Maria Lisina <sekoohaka.sarisan@gmail.com>  Fri, 23 Oct 2026 17:19:12 +0000
+
 linux (7.3-1) stable; urgency=low
 
   * Updated to 7.3.
