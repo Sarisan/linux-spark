@@ -38,7 +38,7 @@ do
         "${module}"
 done
 
-echo "Compressing kernel modules with ZSTD"
+echo "Compressing kernel modules..."
 find "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules" -type f -name "*.ko" | while read -r module
 do
     echo "  ZSTD    ${module}"
