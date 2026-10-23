@@ -7,7 +7,6 @@ alias readelf="llvm-readelf${llvm}"
 alias objcopy="llvm-objcopy${llvm}"
 alias strip="llvm-strip${llvm}"
 
-echo "Striping kernel modules..."
 (
     find "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules" -type f -name "*.ko"
     echo "${PWD}/debian/linux-image-${kernelrelease}-dbg/usr/lib/debug/boot/vmlinux-${kernelrelease}"
@@ -28,7 +27,6 @@ do
     objcopy --add-gnu-debuglink="${target_file}" "${module}"
 done
 
-echo "Signing kernel modules..."
 find "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules" -type f -name "*.ko" | while read -r module
 do
     echo "  SIGN    ${module}"
@@ -38,7 +36,6 @@ do
         "${module}"
 done
 
-echo "Compressing kernel modules..."
 find "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules" -type f -name "*.ko" | while read -r module
 do
     echo "  ZSTD    ${module}"
