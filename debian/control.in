@@ -42,13 +42,13 @@ Section: debug
 Architecture: amd64
 Depends: linux-image-@KERNELRELEASE@-dbg (= ${binary:Version}),
          ${misc:Depends}
-Description: Linux Kernel debug for Intel laptops
+Description: Linux Kernel debug symbols for Intel laptops
 
 Package: linux-image-@KERNELRELEASE@-dbg
 Section: debug
 Architecture: amd64
 Depends: ${misc:Depends}
-Description: Linux Kernel debug for Intel laptops
+Description: Linux Kernel debug symbols for Intel laptops
 
 Package: linux-headers-@NAME@
 Architecture: amd64
