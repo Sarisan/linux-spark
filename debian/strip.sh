@@ -41,3 +41,8 @@ do
     echo "  ZSTD    ${module}"
     zstd --rm -19 -q -T0 "${module}"
 done
+
+sed -i 's/\.ko/\.ko\.zst/g' \
+    "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules/${kernelrelease}/modules.dep" \
+    "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules/${kernelrelease}/modules.order"
+depmod -b "${PWD}/debian/linux-image-${kernelrelease}/usr" "${kernelrelease}"
