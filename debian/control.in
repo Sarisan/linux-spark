@@ -61,6 +61,7 @@ Architecture: amd64
 Depends: make,
          bc,
          kmod,
+         zstd,
          libelf-dev,
          libssl-dev,
          clang-22,
