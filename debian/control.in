@@ -76,3 +76,9 @@ Architecture: amd64
 Depends: systemd,
          ${misc:Depends}
 Description: Linux Kernel common files for Intel laptops
+
+Package: linux-libc-dev
+Section: devel
+Architecture: amd64
+Depends: ${misc:Depends}
+Description: Linux Kernel headers for user-space development
