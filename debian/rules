@@ -41,16 +41,14 @@ override_dh_auto_test:
 
 override_dh_auto_install:
 	install -d $(CURDIR)/debian/linux-image-$(KERNELRELEASE)
-	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) INSTALL_MOD_STRIP=1 INSTALL_MOD_PATH=$(CURDIR)/debian/linux-image-$(KERNELRELEASE)/usr modules_install
+	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) INSTALL_MOD_PATH=$(CURDIR)/debian/linux-image-$(KERNELRELEASE)/usr modules_install
 	install -D -m 644 $(CURDIR)/build/System.map $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/boot/System.map-$(KERNELRELEASE)
 	install -D -m 644 $(CURDIR)/build/.config $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/boot/config-$(KERNELRELEASE)
 	install -D -m 644 $(CURDIR)/build/arch/x86/boot/bzImage $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/boot/vmlinuz-$(KERNELRELEASE)
 	rm -f $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
 
 	install -d $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg
-	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) INSTALL_MOD_PATH=$(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug modules_install
-	install -D -m 644 $(CURDIR)/build/System.map $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug/lib/modules/$(KERNELRELEASE)/System.map
-	install -D -m 644 $(CURDIR)/build/vmlinux $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug/lib/modules/$(KERNELRELEASE)/vmlinux
+	install -D -m 644 $(CURDIR)/build/vmlinux $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug/boot/vmlinux-$(KERNELRELEASE)
 
 	install -d $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build/arch/x86
 	cp -a $(CURDIR)/build/.config $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
@@ -68,4 +66,4 @@ override_dh_dwz:
 	@echo "Skipping dh_dwz"
 
 override_dh_strip:
-	dh_strip --dbg-package=linux-image-$(KERNELRELEASE)-dbg
+	$(CURDIR)/debian/strip.sh $(LLVM) $(KERNELRELEASE)
