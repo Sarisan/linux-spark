@@ -12,9 +12,9 @@ Build-Depends: debhelper-compat (= 13),
                zstd,
                libelf-dev,
                libssl-dev,
-               clang-22,
-               lld-22,
-               llvm-22
+               clang-@LLVM@,
+               lld-@LLVM@,
+               llvm-@LLVM@
 Standards-Version: 4.7.4
 
 Package: linux-image-@NAME@
@@ -64,9 +64,9 @@ Depends: make,
          zstd,
          libelf-dev,
          libssl-dev,
-         clang-22,
-         lld-22,
-         llvm-22,
+         clang-@LLVM@,
+         lld-@LLVM@,
+         llvm-@LLVM@,
          ${shlibs:Depends},
          ${misc:Depends}
 Description: Linux Kernel headers for Intel laptops

@@ -1,10 +1,12 @@
 #!/bin/sh -e
 
 name=${1}
-kernelrelease=${2}
+llvm=${2}
+kernelrelease=${3}
 
 echo "Generating debian/control"
 sed -e "s/@NAME@/${name}/g" \
+    -e "s/@LLVM@/${llvm#-}/g" \
     -e "s/@KERNELRELEASE@/${kernelrelease}/g" \
     "${PWD}/debian/control.in" > "${PWD}/debian/control"
 
