@@ -39,12 +39,13 @@ override_dh_auto_install:
 	install -d $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg
 	install -D -m 644 $(CURDIR)/build/vmlinux $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug/boot/vmlinux-$(KERNELRELEASE)
 
-	install -d $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build/arch/x86
-	cp -a $(CURDIR)/build/.config $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
+	install -d $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
+	cp $(CURDIR)/build/.config $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
 	$(MAKE) -j $(JOBS) O=$(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) modules_prepare
-	$(MAKE) -j $(JOBS) O=$(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build ARCH=x86_64 LLVM=$(LLVM) LOCALVERSION=$(LOCALVERSION) scripts
-	cp -a $(CURDIR)/arch/x86/include $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build/arch/x86
-	cp -a $(CURDIR)/include $(CURDIR)/Kbuild $(CURDIR)/Makefile $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
+	cp -a $(CURDIR)/arch/x86/Kbuild $(CURDIR)/arch/x86/Makefile $(CURDIR)/arch/x86/include $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build/arch/x86
+	cp -a $(CURDIR)/Kbuild $(CURDIR)/Makefile $(CURDIR)/include $(CURDIR)/scripts $(CURDIR)/tools $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
+	cp -a $(CURDIR)/build/Module.symvers $(CURDIR)/build/scripts $(CURDIR)/build/tools $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
+	rm -f $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build/source
 
 	install -D -m 644 $(CURDIR)/debian/modules-load.conf $(CURDIR)/debian/linux-image-$(NAME)-common/etc/modules-load.d/$(NAME).conf
 
