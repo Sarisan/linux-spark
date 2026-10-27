@@ -3,9 +3,9 @@
 llvm=${1}
 kernelrelease=${2}
 
-alias readelf="llvm-readelf${llvm}"
-alias objcopy="llvm-objcopy${llvm}"
-alias strip="llvm-strip${llvm}"
+alias readelf="llvm-readelf-${llvm}"
+alias objcopy="llvm-objcopy-${llvm}"
+alias strip="llvm-strip-${llvm}"
 
 (
     find "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules" -type f -name "*.ko"
