@@ -1,3 +1,9 @@
+linux (7.3-3) stable; urgency=low
+
+  * Fixed kernel headers package.
+
+ -- Maria Lisina <sekoohaka.sarisan@gmail.com>  Tue, 27 Oct 2026 07:52:18 +0000
+
 linux (7.3-2) stable; urgency=low
 
   * Added kernel headers package.
