@@ -59,14 +59,15 @@ Description: Linux Kernel headers for Intel laptops
 Package: linux-headers-@KERNELRELEASE@
 Architecture: amd64
 Depends: make,
-         bc,
          kmod,
+         pahole,
          zstd,
          libelf-dev,
          libssl-dev,
          clang-@LLVM@,
          lld-@LLVM@,
          llvm-@LLVM@,
+         ${perl:Depends},
          ${shlibs:Depends},
          ${misc:Depends}
 Description: Linux Kernel headers for Intel laptops
