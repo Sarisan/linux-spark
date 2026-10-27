@@ -25,7 +25,6 @@ do
 
     objcopy --only-keep-debug "${module}" "${target_file}"
     strip --strip-debug "${module}"
-    objcopy --add-gnu-debuglink="${target_file}" "${module}"
 done
 
 find "${PWD}/debian/linux-image-${kernelrelease}/usr/lib/modules" -type f -name "*.ko" | while read -r module
