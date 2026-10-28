@@ -37,49 +37,8 @@ Suggests: linux-image-@NAME@-common (= ${binary:Version}),
           firmware-realtek
 Description: Linux Kernel for Intel laptops
 
-Package: linux-image-@NAME@-dbg
-Section: debug
-Architecture: amd64
-Depends: linux-image-@KERNELRELEASE@-dbg (= ${binary:Version}),
-         ${misc:Depends}
-Description: Linux Kernel debug symbols for Intel laptops
-
-Package: linux-image-@KERNELRELEASE@-dbg
-Section: debug
-Architecture: amd64
-Depends: ${misc:Depends}
-Description: Linux Kernel debug symbols for Intel laptops
-
-Package: linux-headers-@NAME@
-Architecture: amd64
-Depends: linux-headers-@KERNELRELEASE@ (= ${binary:Version}),
-         ${misc:Depends}
-Description: Linux Kernel headers for Intel laptops
-
-Package: linux-headers-@KERNELRELEASE@
-Architecture: amd64
-Depends: make,
-         kmod,
-         pahole,
-         zstd,
-         libelf-dev,
-         libssl-dev,
-         clang-@LLVM@,
-         lld-@LLVM@,
-         llvm-@LLVM@,
-         ${perl:Depends},
-         ${shlibs:Depends},
-         ${misc:Depends}
-Description: Linux Kernel headers for Intel laptops
-
 Package: linux-image-@NAME@-common
 Architecture: amd64
 Depends: systemd,
          ${misc:Depends}
 Description: Linux Kernel common files for Intel laptops
-
-Package: linux-libc-dev
-Section: devel
-Architecture: amd64
-Depends: ${misc:Depends}
-Description: Linux Kernel headers for user-space development

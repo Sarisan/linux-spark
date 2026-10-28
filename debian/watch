@@ -2,4 +2,4 @@ Version: 5
 Source: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
 Matching-Pattern: refs/tags/v@ANY_VERSION@
 Mode: git
-Update-Script: debian/prepare.sh
+Update-Script: debian/update.sh

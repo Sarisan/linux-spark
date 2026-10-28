@@ -41,23 +41,13 @@ override_dh_auto_test:
 	@echo "Skipping dh_auto_test"
 
 override_dh_auto_install:
-	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=-$(LLVM) LOCALVERSION=-$(LOCALVERSION) INSTALL_MOD_PATH=$(CURDIR)/debian/linux-image-$(KERNELRELEASE)/usr modules_install
+	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=-$(LLVM) LOCALVERSION=-$(LOCALVERSION) INSTALL_MOD_STRIP=1 INSTALL_MOD_PATH=$(CURDIR)/debian/linux-image-$(KERNELRELEASE)/usr modules_install
 	install -D -m 644 $(CURDIR)/build/System.map $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/boot/System.map-$(KERNELRELEASE)
 	install -D -m 644 $(CURDIR)/build/.config $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/boot/config-$(KERNELRELEASE)
 	install -D -m 644 $(CURDIR)/build/arch/x86/boot/bzImage $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/boot/vmlinuz-$(KERNELRELEASE)
 	rm -f $(CURDIR)/debian/linux-image-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
 
-	install -D -m 644 $(CURDIR)/build/vmlinux $(CURDIR)/debian/linux-image-$(KERNELRELEASE)-dbg/usr/lib/debug/boot/vmlinux-$(KERNELRELEASE)
-
-	$(MAKE) -j $(JOBS) O=$(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build KCONFIG_CONFIG=$(CURDIR)/build/.config ARCH=x86_64 LLVM=-$(LLVM) LOCALVERSION=-$(LOCALVERSION) modules_prepare
-	cp -a $(CURDIR)/arch/x86/Kbuild $(CURDIR)/arch/x86/Makefile $(CURDIR)/arch/x86/include $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build/arch/x86
-	cp -a $(CURDIR)/Kbuild $(CURDIR)/Makefile $(CURDIR)/include $(CURDIR)/scripts $(CURDIR)/tools $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
-	cp -a $(CURDIR)/build/Module.symvers $(CURDIR)/build/scripts $(CURDIR)/build/tools $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build
-	rm -f $(CURDIR)/debian/linux-headers-$(KERNELRELEASE)/usr/lib/modules/$(KERNELRELEASE)/build/source
-
 	install -D -m 644 $(CURDIR)/debian/modules-load.conf $(CURDIR)/debian/linux-image-$(NAME)-common/etc/modules-load.d/$(NAME).conf
-
-	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=-$(LLVM) LOCALVERSION=-$(LOCALVERSION) INSTALL_HDR_PATH=$(CURDIR)/debian/linux-libc-dev/usr headers_install
 
 override_dh_installdebconf:
 	@echo "Skipping dh_installdebconf"
@@ -69,4 +59,4 @@ override_dh_strip_nondeterminism:
 	@echo "Skipping dh_strip_nondeterminism"
 
 override_dh_strip:
-	$(CURDIR)/debian/strip.sh $(LLVM) $(KERNELRELEASE)
+	@echo "Skipping dh_strip"
