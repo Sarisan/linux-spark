@@ -57,7 +57,7 @@ override_dh_auto_install:
 
 	install -D -m 644 $(CURDIR)/debian/modules-load.conf $(CURDIR)/debian/linux-image-$(NAME)-common/etc/modules-load.d/$(NAME).conf
 
-	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=-$(LLVM) LOCALVERSION=-$(LOCALVERSION) INSTALL_HDR_PATH=$(CURDIR)/debian/linux-libc-dev headers_install
+	$(MAKE) -j $(JOBS) O=$(CURDIR)/build ARCH=x86_64 LLVM=-$(LLVM) LOCALVERSION=-$(LOCALVERSION) INSTALL_HDR_PATH=$(CURDIR)/debian/linux-libc-dev/usr headers_install
 
 override_dh_installdebconf:
 	@echo "Skipping dh_installdebconf"
